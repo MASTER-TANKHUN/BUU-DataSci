@@ -12,6 +12,19 @@ window.GHOST_DATA = {
     { status: "found", label: "Caption found", value: 686963 },
     { status: "not_found", label: "Caption not found", value: 281445 }
   ],
+
+  captionByYear: [
+    { year: 2016, found: 621519.82, foundN: 33, notFound: 132579.50, notFoundN: 2 },
+    { year: 2017, found: 426572.99, foundN: 117, notFound: 617573.47, notFoundN: 98 },
+    { year: 2018, found: 451293.07, foundN: 111, notFound: 242198.60, notFoundN: 421 },
+    { year: 2019, found: 512275.14, foundN: 218, notFound: 272814.13, notFoundN: 797 },
+    { year: 2020, found: 408139.80, foundN: 1018, notFound: 216222.79, notFoundN: 238 },
+    { year: 2021, found: 556477.57, foundN: 281, notFound: 1698778.33, notFoundN: 3 },
+    { year: 2022, found: 471763.61, foundN: 136, notFound: null, notFoundN: 0 },
+    { year: 2023, found: 1157711.80, foundN: 66, notFound: 77562.00, notFoundN: 1 },
+    { year: 2024, found: 932110.54, foundN: 1138, notFound: 95906.67, notFoundN: 3 },
+    { year: 2025, found: 838425.42, foundN: 914, notFound: 1026004.50, notFoundN: 4 }
+  ],
   yearViews: [
     { year: 2016, value: 20775313 },
     { year: 2017, value: 110431240 },
@@ -25,13 +38,13 @@ window.GHOST_DATA = {
     { year: 2025, value: 770424854 }
   ],
   dayRank: [
-    { day: "Wednesday", th: "พุธ", rank: 1, relative: 100, approx: "≈ 1.1M views" },
-    { day: "Friday", th: "ศุกร์", rank: 2, relative: 80 },
-    { day: "Thursday", th: "พฤหัสบดี", rank: 3, relative: 67 },
-    { day: "Sunday", th: "อาทิตย์", rank: 4, relative: 53 },
-    { day: "Tuesday", th: "อังคาร", rank: 5, relative: 53 },
-    { day: "Monday", th: "จันทร์", rank: 6, relative: 52 },
-    { day: "Saturday", th: "เสาร์", rank: 7, relative: 40 }
+    { day: "Wednesday", th: "พุธ", rank: 1, value: 1087180.09, exact: "1,087,180.09 views" },
+    { day: "Friday", th: "ศุกร์", rank: 2, value: 864660.55, exact: "864,660.55 views" },
+    { day: "Thursday", th: "พฤหัสบดี", rank: 3, value: 730683.65, exact: "730,683.65 views" },
+    { day: "Sunday", th: "อาทิตย์", rank: 4, value: 573214.53, exact: "573,214.53 views" },
+    { day: "Tuesday", th: "อังคาร", rank: 5, value: 572198.23, exact: "572,198.23 views" },
+    { day: "Monday", th: "จันทร์", rank: 6, value: 564975.42, exact: "564,975.42 views" },
+    { day: "Saturday", th: "เสาร์", rank: 7, value: 438836.60, exact: "438,836.60 views" }
   ],
   narrative: {
     stories: 534,

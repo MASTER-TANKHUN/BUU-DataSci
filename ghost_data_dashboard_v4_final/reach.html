@@ -29,11 +29,50 @@
     </div>
   </section>
 
-  <section class="section"><div class="section-head"><div class="section-index">PROCESS</div><div class="section-title"><h2>จาก 404 batches สู่กราฟ</h2><p>กระบวนการด้านล่างแสดงลำดับการเตรียมข้อมูลและการคำนวณที่ใช้สร้างกราฟ</p></div></div><div class="story-flow"><div class="flow-step"><div class="n">01</div><b>Combine</b><p>รวม `batch_*.csv` 404 ไฟล์</p></div><div class="flow-step"><div class="n">02</div><b>Shape</b><p>ได้ 5,625 rows × 10 columns</p></div><div class="flow-step"><div class="n">03</div><b>Quality</b><p>duplicate rows = 0; caption_text missing = 1,568</p></div><div class="flow-step"><div class="n">04</div><b>Caption aggregate</b><p>group caption_status ด้วย mean(view_count)</p></div><div class="flow-step"><div class="n">05</div><b>Year aggregate</b><p>parse published_date → year → sum(view_count)</p></div></div></section>
+
+<section class="section" id="caption-year-gap">
+  <div class="section-head">
+    <div class="section-index">YEAR CHECK</div>
+    <div class="section-title">
+      <h2>Caption Gap by Year</h2>
+      <p>เทียบ Average View Count ของ Caption found กับ not found ภายในปีเดียวกัน เพื่อลดผลปนจากความแตกต่างระหว่างปี</p>
+    </div>
+  </div>
+  <div class="dashboard-grid">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title">Average views within the same published year</div>
+          <div class="panel-sub">Default แสดงเฉพาะปีที่ทั้งสองกลุ่มมีอย่างน้อย 20 คลิป · hover จุดเพื่อดูค่าและ sample size</div>
+        </div>
+        <div class="controls">
+          <button class="control-btn active" data-caption-year-mode="comparable">Comparable years</button>
+          <button class="control-btn" data-caption-year-mode="all">All years</button>
+        </div>
+      </div>
+      <div id="caption-year-chart" class="chart"></div>
+    </div>
+    <aside class="panel">
+      <div class="panel-title">อ่านผลแบบไม่หลงค่าเฉลี่ย</div>
+      <div class="metric-stack">
+        <div class="metric-line"><span>Comparable years</span><b>2017–2020</b></div>
+        <div class="metric-line"><span>Found สูงกว่า</span><b>3 / 4 ปี</b></div>
+        <div class="metric-line"><span>ข้อยกเว้น</span><b>2017</b></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">สรุป</div>
+        <p>เมื่อเทียบภายในปีที่มี sample size เพียงพอ กลุ่มที่พบ caption มี average views สูงกว่าในปี 2018, 2019 และ 2020 แต่ปี 2017 กลับเป็นกลุ่ม not found ที่สูงกว่า จึงเห็นว่าความสัมพันธ์ไม่ได้เหมือนกันทุกปี</p>
+        <small>หลังปี 2021 จำนวนคลิป not found เหลือน้อยมาก (0–4 คลิปต่อปีในหลายปี) จึงไม่ควรใช้ค่าเฉลี่ยของปีเหล่านั้นเป็นหลักฐานแรง ๆ แม้เปิดดูได้ในโหมด All years</small>
+      </div>
+    </aside>
+  </div>
+</section>
+
+  <section class="section"><div class="section-head"><div class="section-index">PROCESS</div><div class="section-title"><h2>จาก 404 batches สู่กราฟ</h2><p>กระบวนการด้านล่างแสดงลำดับการเตรียมข้อมูลและการคำนวณที่ใช้สร้างกราฟ</p></div></div><div class="story-flow"><div class="flow-step"><div class="n">01</div><b>Combine</b><p>รวม `batch_*.csv` 404 ไฟล์</p></div><div class="flow-step"><div class="n">02</div><b>Shape</b><p>ได้ 5,625 rows × 10 columns</p></div><div class="flow-step"><div class="n">03</div><b>Quality</b><p>duplicate rows = 0; caption_text missing = 1,568</p></div><div class="flow-step"><div class="n">04</div><b>Caption aggregate</b><p>group caption_status ด้วย mean(view_count)</p></div><div class="flow-step"><div class="n">05</div><b>Year aggregate</b><p>parse published_date → year → sum(view_count)</p></div><div class="flow-step"><div class="n">06</div><b>Year check</b><p>group year + caption_status → mean(view_count) และตรวจ sample size</p></div></div></section>
 
   <div class="page-nav"><a href="index.html">← กลับหน้า Overview<b>ภาพรวมทั้งหมด</b></a><a href="timing.html">Insight ถัดไป →<b>Day of Week</b></a></div>
 </main>
 <footer class="footer"><span>Interactive report · Vanilla HTML / CSS / JS</span><span>Association ≠ causation</span></footer>
 <div class="route-wipe" aria-hidden="true"></div>
-<script src="js/data.js"></script><script src="js/app.js"></script><script src="js/charts.js"></script><script src="js/pages.js"></script>
+<script src="js/data.v6.js"></script><script src="js/app.v6.js"></script><script src="js/charts.v6.js"></script><script src="js/pages.v6.js"></script>
 </body></html>
