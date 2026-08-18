@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="th">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light"><title>Day of Week</title><link rel="stylesheet" href="css/styles.css"></head>
+<body data-page="timing">
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="index.html"><span class="brand-chip gold">BUU</span><span class="brand-sep"></span><span class="brand-chip">CRU</span><span class="full">DATA STORY</span></a>
+  <nav class="nav"><a href="index.html">Overview</a><a href="reach.html">Reach</a><a href="timing.html" aria-current="page">Timing</a><a href="narrative.html">Narrative</a></nav>
+  <div class="header-meta">ผลงานของที่1</div>
+</div></header>
+<main>
+  <section class="detail-hero"><div class="breadcrumb"><a href="index.html">Overview</a><span>/</span><span>Timing</span></div><div class="detail-hero-grid"><div><div class="eyebrow">03 · Publication timing</div><h1>วันเผยแพร่ไหน<br>มี Average Views สูงกว่า?</h1><p class="lead">กราฟต้นฉบับเปรียบเทียบ average view count ตามวันในสัปดาห์ โดยวันพุธอยู่สูงที่สุด</p></div><aside class="key-read"><div class="label">Key read</div><div class="value">≈ 1.1M</div><p>Wednesday อยู่ลำดับ #1 ในกราฟ; Friday และ Thursday ตามมา</p></aside></div></section>
+
+  <section class="section">
+    <div class="panel"><div class="panel-head"><div><div class="panel-title">Average views by published day</div><div class="panel-sub">ความยาวแท่งใช้ relative index จากกราฟต้นฉบับ โดย Wednesday = 100</div></div><div class="controls"><button class="control-btn active" data-day-group="all">ทุกวัน</button><button class="control-btn" data-day-group="weekday">Weekday</button><button class="control-btn" data-day-group="weekend">Weekend</button></div></div><div id="day-chart" class="chart"></div></div>
+    <div class="summary-grid">
+      <div class="summary-card"><div class="summary-label">สรุป</div><p>จากกราฟ วันพุธเป็นวันที่วิดีโอที่เผยแพร่มี average views สูงที่สุด โดยอยู่ที่ประมาณ <b>1.1 ล้าน views</b>. ส่วน Saturday อยู่ต่ำที่สุดในกราฟที่แนบ</p></div>
+      <div class="hypothesis-card"><div class="summary-label">สมมติฐานในการตีความ</div><p>ทีมตั้งสมมติฐานว่า ช่วงเสาร์–อาทิตย์ผู้ชมบางส่วนอาจเลือกฟังรายการสดเพราะมีเวลาว่าง ส่วนวันพุธซึ่งอยู่กลางสัปดาห์อาจเป็นช่วงที่ผู้ชมกลับมาดูย้อนหลังบน YouTube มากขึ้น</p><small>กราฟนี้ยังไม่สามารถพิสูจน์สมมติฐานดังกล่าวได้ เพราะไม่ได้วัดพฤติกรรมการฟังสดหรือควบคุมอายุคลิป/ประเภทคลิป</small></div>
+    </div>
+  </section>
+
+  <section class="section"><div class="explain-grid"><div class="prose"><h3>วิธีอ่านกราฟ</h3><p>Bar chart เหมาะกับการเปรียบเทียบ 7 วัน เพราะความยาวแท่งอ่านอันดับได้ทันที และสามารถ Filter แยก Weekday / Weekend ได้</p><ul><li>Wednesday = อันดับ 1</li><li>Friday = อันดับ 2</li><li>Thursday = อันดับ 3</li><li>Saturday = อันดับสุดท้าย</li></ul></div><div class="prose"><h3>ข้อจำกัด</h3><p>Final.zip มีภาพกราฟแต่ notebook ของ Day-of-Week เป็นไฟล์ว่าง จึงไม่ควรสร้างค่าตัวเลข exact ของทุกวันขึ้นมาใหม่จากไม่มีหลักฐาน. หน้าเว็บจึงเก็บตัวเลข ≈1.1M เฉพาะ Wednesday ตามการอ่านกราฟ และใช้ relative index สำหรับการเปรียบเทียบทั้ง 7 วัน</p><div class="equation">Safe: Wednesday has the highest average views in the provided chart.
+Not proven: Publishing on Wednesday causes higher views.</div></div></div></section>
+
+  <div class="page-nav"><a href="reach.html">← Insight ก่อนหน้า<b>Reach & Views</b></a><a href="narrative.html">Insight ถัดไป →<b>Narrative Arc</b></a></div>
+</main>
+<footer class="footer"><span>Interactive report · Vanilla HTML / CSS / JS</span><span>Hypothesis is separated from evidence</span></footer>
+<div class="route-wipe" aria-hidden="true"></div>
+<script src="js/data.js"></script><script src="js/app.js"></script><script src="js/charts.js"></script><script src="js/pages.js"></script>
+</body></html>

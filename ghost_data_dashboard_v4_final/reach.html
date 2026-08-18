@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light">
+  <title>Reach & Views</title><link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="reach">
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="index.html"><span class="brand-chip gold">BUU</span><span class="brand-sep"></span><span class="brand-chip">CRU</span><span class="full">DATA STORY</span></a>
+  <nav class="nav"><a href="index.html">Overview</a><a href="reach.html" aria-current="page">Reach</a><a href="timing.html">Timing</a><a href="narrative.html">Narrative</a></nav>
+  <div class="header-meta">ผลงานของที่1</div>
+</div></header>
+<main>
+  <section class="detail-hero">
+    <div class="breadcrumb"><a href="index.html">Overview</a><span>/</span><span>Reach</span></div>
+    <div class="detail-hero-grid"><div><div class="eyebrow">01–02 · Structured metadata</div><h1>Caption availability<br>และ Total Views by Year</h1><p class="lead">สองมุมที่มาจาก notebook เดียวกัน: average views แยกตาม caption status และยอดวิวรวมของวิดีโอที่เผยแพร่ในแต่ละปี</p></div><aside class="key-read"><div class="label">Key read</div><div class="value">686,963 vs 281,445</div><p>กลุ่ม caption found มี average views สูงกว่า แต่กราฟนี้ยังไม่พิสูจน์ว่า caption เป็นสาเหตุ</p></aside></div>
+  </section>
+
+  <section class="section">
+    <div class="dashboard-grid">
+      <div class="panel"><div class="panel-head"><div><div class="panel-title">Average View Count by Caption Status</div><div class="panel-sub">หน่วย: views ต่อวิดีโอโดยเฉลี่ย · hover ที่แท่งเพื่อดูค่า</div></div></div><div id="caption-chart" class="chart"></div></div>
+      <aside class="panel"><div class="panel-title">อ่านค่าเร็ว</div><div class="metric-stack"><div class="metric-line"><span>Caption found</span><b>686,963</b></div><div class="metric-line"><span>Not found</span><b>281,445</b></div><div class="metric-line"><span>Difference ratio</span><b>2.44×</b></div></div><div class="summary-card"><div class="summary-label">สรุป</div><p>ในข้อมูลชุดนี้ คลิปที่มีแคปชั่นมี average views สูงกว่ากลุ่มที่ไม่มีแคปชั่นอย่างชัดเจน แต่ยังไม่ควรสรุปว่า “แคปชั่นดึงดูดผู้ชม” โดยตรง เพราะยังมีปัจจัยอื่นที่ไม่ได้ควบคุม</p></div></aside>
+    </div>
+  </section>
+
+  <section class="section" id="years">
+    <div class="section-head"><div class="section-index">YEAR SERIES</div><div class="section-title"><h2>Total View Count Over Time</h2><p>Filter ช่วงปีได้โดยไม่เปลี่ยนข้อมูลต้นฉบับ และ hover จุดเพื่อดูยอดรวมของแต่ละปี</p></div></div>
+    <div class="panel"><div class="panel-head"><div><div class="panel-title">Total views by published year</div><div class="panel-sub">2016–2025 · sum(view_count) per published year</div></div><div class="controls"><button class="control-btn active" data-year-range="all">ทั้งหมด</button><button class="control-btn" data-year-range="early">2016–2020</button><button class="control-btn" data-year-range="late">2021–2025</button></div></div><div id="year-chart" class="chart"></div></div>
+    <div class="summary-card wide"><div class="summary-label">สรุป</div><p>Series เริ่มที่ปี 2016 ซึ่งเป็นช่วงแรกของข้อมูลที่นำมาวิเคราะห์ และพีคในปี <b>2024</b> ที่ <b>1,061,029,518 views</b> หรือประมาณ 1.1 พันล้าน views. ปี 2025 ลดลงเหลือ 770,424,854 views — ลดจากพีคประมาณ 27.4% แต่ยังอยู่ในระดับสูง. ปี 2026 ไม่ถูกนำมาสรุป เพราะทีมพิจารณาว่าข้อมูลปีนี้ยังไม่ครบถ้วน</p><small>หมายเหตุ: ค่านี้คือผลรวม view_count ของวิดีโอที่เผยแพร่ในปีนั้น ณ เวลาที่เก็บข้อมูล ไม่ใช่ยอดวิวที่เกิดขึ้น “ภายในปีนั้น” เท่านั้น</small></div>
+  </section>
+
+  <section class="section"><div class="section-head"><div class="section-index">PROCESS</div><div class="section-title"><h2>จาก 404 batches สู่กราฟ</h2><p>ขั้นตอนนี้อ้างอิงโค้ดและ output ใน notebook ที่อยู่ใน Final.zip โดยตรง</p></div></div><div class="story-flow"><div class="flow-step"><div class="n">01</div><b>Combine</b><p>รวม `batch_*.csv` 404 ไฟล์</p></div><div class="flow-step"><div class="n">02</div><b>Shape</b><p>ได้ 5,625 rows × 10 columns</p></div><div class="flow-step"><div class="n">03</div><b>Quality</b><p>duplicate rows = 0; caption_text missing = 1,568</p></div><div class="flow-step"><div class="n">04</div><b>Caption aggregate</b><p>group caption_status ด้วย mean(view_count)</p></div><div class="flow-step"><div class="n">05</div><b>Year aggregate</b><p>parse published_date → year → sum(view_count)</p></div></div></section>
+
+  <div class="page-nav"><a href="index.html">← กลับหน้า Overview<b>ภาพรวมทั้งหมด</b></a><a href="timing.html">Insight ถัดไป →<b>Day of Week</b></a></div>
+</main>
+<footer class="footer"><span>Interactive report · Vanilla HTML / CSS / JS</span><span>Association ≠ causation</span></footer>
+<div class="route-wipe" aria-hidden="true"></div>
+<script src="js/data.js"></script><script src="js/app.js"></script><script src="js/charts.js"></script><script src="js/pages.js"></script>
+</body></html>
