@@ -5,20 +5,32 @@
 <header class="site-header"><div class="header-inner">
   <a class="brand" href="index.html"><span class="brand-chip gold">BUU</span><span class="brand-sep"></span><span class="brand-chip">CRU</span><span class="full">DATA STORY</span></a>
   <nav class="nav"><a href="index.html">Overview</a><a href="reach.html">Reach</a><a href="timing.html" aria-current="page">Timing</a><a href="narrative.html">Narrative</a></nav>
-  <div class="header-meta">ผลงานของที่1</div>
+  <div class="header-meta">THE GHOST RADIO · DATA ANALYTICS</div>
 </div></header>
 <main>
-  <section class="detail-hero"><div class="breadcrumb"><a href="index.html">Overview</a><span>/</span><span>Timing</span></div><div class="detail-hero-grid"><div><div class="eyebrow">03 · Publication timing</div><h1>วันเผยแพร่ไหน<br>มี Average Views สูงกว่า?</h1><p class="lead">กราฟต้นฉบับเปรียบเทียบ average view count ตามวันในสัปดาห์ โดยวันพุธอยู่สูงที่สุด</p></div><aside class="key-read"><div class="label">Key read</div><div class="value">≈ 1.1M</div><p>Wednesday อยู่ลำดับ #1 ในกราฟ; Friday และ Thursday ตามมา</p></aside></div></section>
+  <section class="detail-hero"><div class="breadcrumb"><a href="index.html">Overview</a><span>/</span><span>Timing</span></div><div class="detail-hero-grid"><div><div class="eyebrow">03 · Publication timing</div><h1>วันเผยแพร่ไหน<br>มี Average Views สูงกว่า?</h1><p class="lead">วิเคราะห์ค่าเฉลี่ยของ view_count ตามวันเผยแพร่ในสัปดาห์ แล้วเรียงจากมากไปน้อย โดยวันพุธมีค่าเฉลี่ยสูงที่สุด</p></div><aside class="key-read"><div class="label">Key read</div><div class="value">≈ 1.1M</div><p>Wednesday อยู่ลำดับ #1 ในกราฟ; Friday และ Thursday ตามมา</p></aside></div></section>
 
   <section class="section">
-    <div class="panel"><div class="panel-head"><div><div class="panel-title">Average views by published day</div><div class="panel-sub">ความยาวแท่งใช้ relative index จากกราฟต้นฉบับ โดย Wednesday = 100</div></div><div class="controls"><button class="control-btn active" data-day-group="all">ทุกวัน</button><button class="control-btn" data-day-group="weekday">Weekday</button><button class="control-btn" data-day-group="weekend">Weekend</button></div></div><div id="day-chart" class="chart"></div></div>
+    <div class="panel"><div class="panel-head"><div><div class="panel-title">Average views by published day</div><div class="panel-sub">Average View Count ตามวันเผยแพร่ · เรียงจากมากไปน้อย · Hover เพื่ออ่านค่าโดยประมาณ</div></div><div class="controls"><button class="control-btn active" data-day-group="all">ทุกวัน</button><button class="control-btn" data-day-group="weekday">Weekday</button><button class="control-btn" data-day-group="weekend">Weekend</button></div></div><div id="day-chart" class="chart"></div></div>
     <div class="summary-grid">
-      <div class="summary-card"><div class="summary-label">สรุป</div><p>จากกราฟ วันพุธเป็นวันที่วิดีโอที่เผยแพร่มี average views สูงที่สุด โดยอยู่ที่ประมาณ <b>1.1 ล้าน views</b>. ส่วน Saturday อยู่ต่ำที่สุดในกราฟที่แนบ</p></div>
+      <div class="summary-card"><div class="summary-label">สรุป</div><p>เมื่อคำนวณ <b>Average View Count แยกตามวันเผยแพร่</b> พบว่า <b>Wednesday</b> อยู่ลำดับสูงที่สุดที่ประมาณ <b>1.1 ล้าน views</b> ต่อคลิป ตามด้วย Friday และ Thursday ขณะที่ Saturday อยู่ลำดับต่ำที่สุด</p></div>
       <div class="hypothesis-card"><div class="summary-label">สมมติฐานในการตีความ</div><p>ทีมตั้งสมมติฐานว่า ช่วงเสาร์–อาทิตย์ผู้ชมบางส่วนอาจเลือกฟังรายการสดเพราะมีเวลาว่าง ส่วนวันพุธซึ่งอยู่กลางสัปดาห์อาจเป็นช่วงที่ผู้ชมกลับมาดูย้อนหลังบน YouTube มากขึ้น</p><small>กราฟนี้ยังไม่สามารถพิสูจน์สมมติฐานดังกล่าวได้ เพราะไม่ได้วัดพฤติกรรมการฟังสดหรือควบคุมอายุคลิป/ประเภทคลิป</small></div>
     </div>
   </section>
 
-  <section class="section"><div class="explain-grid"><div class="prose"><h3>วิธีอ่านกราฟ</h3><p>Bar chart เหมาะกับการเปรียบเทียบ 7 วัน เพราะความยาวแท่งอ่านอันดับได้ทันที และสามารถ Filter แยก Weekday / Weekend ได้</p><ul><li>Wednesday = อันดับ 1</li><li>Friday = อันดับ 2</li><li>Thursday = อันดับ 3</li><li>Saturday = อันดับสุดท้าย</li></ul></div><div class="prose"><h3>ข้อจำกัด</h3><p>Final.zip มีภาพกราฟแต่ notebook ของ Day-of-Week เป็นไฟล์ว่าง จึงไม่ควรสร้างค่าตัวเลข exact ของทุกวันขึ้นมาใหม่จากไม่มีหลักฐาน. หน้าเว็บจึงเก็บตัวเลข ≈1.1M เฉพาะ Wednesday ตามการอ่านกราฟ และใช้ relative index สำหรับการเปรียบเทียบทั้ง 7 วัน</p><div class="equation">Safe: Wednesday has the highest average views in the provided chart.
+  <section class="section">
+    <div class="section-head"><div class="section-index">PROCESS</div><div class="section-title"><h2>จากวันที่เผยแพร่ → Average Views ตามวัน</h2><p>ขั้นตอนคำนวณใช้วันที่เผยแพร่สร้างชื่อวัน แล้วหา mean(view_count) ของแต่ละวันก่อนจัดอันดับ</p></div></div>
+    <div class="story-flow four">
+      <div class="flow-step"><div class="n">01</div><b>Extract weekday index</b><p><code>published_date.dt.dayofweek</code> แปลงวันที่เป็นเลข 0–6 โดย Monday = 0 และ Sunday = 6</p></div>
+      <div class="flow-step"><div class="n">02</div><b>Map day name</b><p>ใช้ <code>day_map</code> เปลี่ยนเลข 0–6 เป็น Monday, Tuesday, Wednesday … Sunday</p></div>
+      <div class="flow-step"><div class="n">03</div><b>Average views</b><p><code>groupby('day_of_week')['view_count'].mean()</code> หายอดวิวเฉลี่ยของคลิปในแต่ละวัน</p></div>
+      <div class="flow-step"><div class="n">04</div><b>Rank & plot</b><p>เรียงด้วย <code>sort_values(ascending=False)</code> แล้วใช้ horizontal bar chart เพื่ออ่านอันดับได้ทันที</p></div>
+    </div>
+    <div class="equation">day_of_week = published_date.dt.dayofweek.map(day_map)
+weekly_analysis = groupby(day_of_week) → mean(view_count) → sort descending</div>
+  </section>
+
+  <section class="section"><div class="explain-grid"><div class="prose"><h3>วิธีอ่านกราฟ</h3><p>แต่ละแท่งแทน <b>ค่าเฉลี่ย view_count ของคลิปที่เผยแพร่ในวันนั้น</b> ไม่ใช่ยอดวิวรวมของวันนั้น การเรียงจากมากไปน้อยช่วยให้เห็นอันดับได้ทันที และ Filter แยก Weekday / Weekend ได้</p><ul><li>Wednesday = อันดับ 1 · ≈ 1.1M average views</li><li>Friday = อันดับ 2</li><li>Thursday = อันดับ 3</li><li>Saturday = อันดับต่ำสุด</li></ul></div><div class="prose"><h3>สิ่งที่กราฟบอก — และสิ่งที่ยังบอกไม่ได้</h3><p>กราฟสนับสนุนว่า <b>คลิปที่เผยแพร่วันพุธมี average views สูงที่สุดในข้อมูลที่วิเคราะห์</b> แต่ยังไม่พิสูจน์ว่าการเลือกวันพุธเป็นสาเหตุที่ทำให้ยอดวิวสูงขึ้น เพราะยังมีตัวแปรอื่น เช่น ปีที่เผยแพร่ อายุคลิป ประเภทเนื้อหา และพฤติกรรมการฟังสด</p><div class="equation">Observed: Wednesday has the highest average views.
 Not proven: Publishing on Wednesday causes higher views.</div></div></div></section>
 
   <div class="page-nav"><a href="reach.html">← Insight ก่อนหน้า<b>Reach & Views</b></a><a href="narrative.html">Insight ถัดไป →<b>Narrative Arc</b></a></div>
